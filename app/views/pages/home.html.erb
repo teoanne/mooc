@@ -1,10 +1,15 @@
+<% if user_signed_in? %>
+<h1> You're logged in! </h1>
+<% else %>
+
 <div class="container">
 	<h1>Welcome to the Basic Introduction to Human Rights Course</h1>
 	<hr>
 	<h3>by the <%= link_to 'Raoul Wallenberg Institute', 'http://www.rwi.lu.se' %>
 	</h3>
-	<p class="btn btn-success btn-large">Sign up now</p>
+	<p class="btn btn-success btn-large"><%= link_to "Sign up now", new_user_registration_path %></p>
 </div>
+<% end %>
 
 
 
