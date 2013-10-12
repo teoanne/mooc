@@ -5,6 +5,12 @@ Mooc::Application.routes.draw do
 
   get 'about' => 'pages#about'
 
+  get 'startcourse' => 'pages#startcourse'
+
+  get 'contactus' => 'pages#contactus'
+
+  get 'course1' => 'pages#course1'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
