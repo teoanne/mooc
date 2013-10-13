@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="span6 offset3">
+		<div class="well">
+<p>
+  <b>Title:</b>
+  <%= @announcement.title %>
+</p>
+
+<p>
+  <b>Annoucement:</b>
+  <%= @announcement.annoucement %>
+</p>
+
+<%= link_to 'Edit', edit_announcement_path(@announcement) %> |
+<%= link_to 'Back', announcements_path %>
+
+</div>
+</div>
+</div>
+
+
+
