@@ -1,4 +1,6 @@
 class AnnouncementsController < ApplicationController
+before_filter :authenticate_user!, except: [:index]
+
   # GET /announcements
   # GET /announcements.json
   def index
@@ -24,7 +26,7 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/new
   # GET /announcements/new.json
   def new
-    @announcement = Announcement.new
+    @announcement = current_user.announcements.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class AnnouncementsController < ApplicationController
 
   # GET /announcements/1/edit
   def edit
-    @announcement = Announcement.find(params[:id])
+    @announcement = current_user.announcements.find(params[:id])
   end
 
   # POST /announcements
   # POST /announcements.json
   def create
-    @announcement = Announcement.new(params[:announcement])
+    @announcement = current_user.announcements.new(params[:announcement])
 
     respond_to do |format|
       if @announcement.save
@@ -56,7 +58,7 @@ class AnnouncementsController < ApplicationController
   # PUT /announcements/1
   # PUT /announcements/1.json
   def update
-    @announcement = Announcement.find(params[:id])
+    @announcement = current_user.announcements.find(params[:id])
 
     respond_to do |format|
       if @announcement.update_attributes(params[:announcement])
@@ -72,7 +74,7 @@ class AnnouncementsController < ApplicationController
   # DELETE /announcements/1
   # DELETE /announcements/1.json
   def destroy
-    @announcement = Announcement.find(params[:id])
+    @announcement = current_user.announcements.find(params[:id])
     @announcement.destroy
 
     respond_to do |format|
